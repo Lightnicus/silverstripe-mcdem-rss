@@ -1,0 +1,19 @@
+{
+	"name" : "silverstripe/mcdem-rss",
+	"description" : "Adds functionality to RSS feeds to meet the requirements of Ministry of Civil Defence and Emergency Management (MCDEM) emergency updates",
+	"type" : "silverstripe-module",
+	"keywords" : [
+		"silverstripe",
+		"mcdem"
+	],
+	"authors" : [{
+			"name" : "Igor Nadj",
+			"email" : "igor@silverstripe.com"
+		}
+	],
+	"require" : {
+		"silverstripe/framework" : "~3.1",
+		"silverstripe/cms" : "~3.1"
+	},
+	"minimum-stability" : "dev"
+}
