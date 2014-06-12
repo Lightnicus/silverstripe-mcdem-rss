@@ -37,33 +37,30 @@ class BlogEntryEmergencyExtension extends DataExtension{
 	}
 
 	function getEmergencyReal() {
-		if($this->Emergency) {
-			$emergency = $this->owner->EmergencyType;
-			$types = array(
-				'Earthquakes' => 'Earthquakes',
-				'VolcanicUnrest' => 'Volcanic unrest',
-				'Landslides' => 'Landslides',
-				'Tsunami' => 'Tsunami',
-				'CoastalHazards' => 'Coastal hazards',
-				'Floods' => 'Floods',
-				'SevereWeather' => 'Severe weather',
-				'InfrastructureFailure' => 'Infrastructure failure',
-				'Drought' => 'Drought',
-				'Biosecurity' => 'Biosecurity',
-				'FoodSafety' => 'Food safety',
-				'Pandemic' => 'Pandemic',
-				'Wildfire' => 'Wildfire',
-				'HazardousSubstanceIncidents' => 'Hazardous substance incidents',
-				'Terrorism' => 'Terrorism',
-				'MajorTransportAccident' => 'Major transport accident',
-				'MarineOilSpill' => 'Marine oil spill',
-				'RadiationIncident' => 'Radiation incident',
-				'Other' => 'Other'
-			);
+		$emergency = $this->owner->EmergencyType;
+		$types = array(
+			'Earthquakes' => 'Earthquakes',
+			'VolcanicUnrest' => 'Volcanic unrest',
+			'Landslides' => 'Landslides',
+			'Tsunami' => 'Tsunami',
+			'CoastalHazards' => 'Coastal hazards',
+			'Floods' => 'Floods',
+			'SevereWeather' => 'Severe weather',
+			'InfrastructureFailure' => 'Infrastructure failure',
+			'Drought' => 'Drought',
+			'Biosecurity' => 'Biosecurity',
+			'FoodSafety' => 'Food safety',
+			'Pandemic' => 'Pandemic',
+			'Wildfire' => 'Wildfire',
+			'HazardousSubstanceIncidents' => 'Hazardous substance incidents',
+			'Terrorism' => 'Terrorism',
+			'MajorTransportAccident' => 'Major transport accident',
+			'MarineOilSpill' => 'Marine oil spill',
+			'RadiationIncident' => 'Radiation incident',
+			'Other' => 'Other'
+		);
 
-			return $types[$emergency];
-		}
-		return;
+		return $types[$emergency];
 	}
 
 	function Description(){

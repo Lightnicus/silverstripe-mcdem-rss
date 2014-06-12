@@ -11,9 +11,7 @@
 			<description>$Description</description>
 			<pubDate>$PubDate</pubDate>
 			<guid>$ID</guid>
-			<% if Emergency %>
 			<nzemergency:type>$getEmergencyReal</nzemergency:type>
-			<% end_if %>
 			<% if UpdateDate %>
 			<atom:updated>$UpdateDate</atom:updated>
 			<% end_if %>

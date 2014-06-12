@@ -23,6 +23,7 @@ class BlogHolderControllerEmergencyExtenction extends Extension{
 		'emergencyrss'
 		);
 
+
 	/**
 	* Get the rss feed for this blog holder's entries
 	*/
