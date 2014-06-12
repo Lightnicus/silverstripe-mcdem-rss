@@ -36,6 +36,9 @@ class BlogEntryEmergencyExtension extends DataExtension{
 		}
 	}
 
+	/**
+	* Returns an Emergency value based on the key
+	*/
 	function getEmergencyReal() {
 		$emergency = $this->owner->EmergencyType;
 		$types = array(
@@ -62,7 +65,9 @@ class BlogEntryEmergencyExtension extends DataExtension{
 
 		return $types[$emergency];
 	}
-
+	/**
+	* Returns the Content with html tags stripped out.
+	*/
 	function Description(){
 		return strip_tags($this->owner->Content);
 	}

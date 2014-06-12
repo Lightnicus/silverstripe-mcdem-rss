@@ -12,6 +12,14 @@ class BlogHolderEmergencyExtension extends DataExtension{
 		$fields->addFieldToTab('Root.RSS', new CheckboxField('EmergencyFeed', 'Is this Blog Holder an MCD Emergency Feed'));
 		$fields->addFieldToTab('Root.RSS', new TextField('RSSTitle', 'RSS Title'));
 		$fields->addFieldToTab('Root.RSS', new TextField('RSSDescription', 'RSS Description'));
+		$fields->addFieldToTab('Root.RSS', new ReadonlyField('RSSURL', 'MCDEM RSS Address', $this->EmergencyFeedLink()));
+	}
+
+	/**
+	* Returns an address to the RSS feed
+	*/
+	function EmergencyFeedLink(){
+		return $this->owner->Link('emergencyrss');
 	}
 
 	
