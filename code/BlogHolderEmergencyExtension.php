@@ -19,7 +19,7 @@ class BlogHolderEmergencyExtension extends DataExtension{
 	* Returns an address to the RSS feed
 	*/
 	function EmergencyFeedLink(){
-		return $this->owner->Link('emergencyrss');
+		return Director::absoluteBaseURL() . $this->owner->URLSegment . '/emergencyrss';
 	}
 
 	
