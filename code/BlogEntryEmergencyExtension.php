@@ -104,7 +104,7 @@ class BlogEntryEmergencyExtension extends DataExtension{
 		if($parentID != 0){
 			$parent = SiteTree::get()->byID($parentID);
 
-			if($parent->ClassName == 'BlogHolder' && $parent->EmergencyFeed){
+			if($parent->EmergencyFeed){
 				$isEmergencyFeed = true;
 			}
 		}
