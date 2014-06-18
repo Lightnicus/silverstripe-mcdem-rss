@@ -111,4 +111,13 @@ class BlogEntryEmergencyExtension extends DataExtension{
 
 		return $isEmergencyFeed;
 	}
+
+	/**
+	 * Generates a unique ID for the guid tag
+	 */
+	function UniqueID() {
+		$hash = hash('sha256', $this->Title . ' ' . $this->Created);
+		return $hash;
+	}
+
 }

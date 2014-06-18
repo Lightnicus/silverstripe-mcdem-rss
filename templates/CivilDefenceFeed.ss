@@ -10,7 +10,7 @@
 			<title>$Title</title>
 			<description>$Description</description>
 			<pubDate>$PubDate</pubDate>
-			<guid>$ID</guid>
+			<guid>$UniqueID</guid>
 			<nzemergency:type>$getEmergencyReal</nzemergency:type>
 			<% if UpdateDate %>
 			<atom:updated>$UpdateDate</atom:updated>
