@@ -62,14 +62,22 @@ class BlogEntryEmergencyExtension extends DataExtension{
 			'RadiationIncident' => 'Radiation incident',
 			'Other' => 'Other'
 		);
+		if(array_key_exists($emergency, $types)){
+			return $types[$emergency];
+		} else {
+			return false;
+		}
 
-		return $types[$emergency];
+		
 	}
+
 	/**
-	* Returns the Content with html tags stripped out.
+	* Returns the Content formatted for XML
 	*/
 	function Description(){
-		return strip_tags($this->owner->Content);
+        $obj = new HTMLText('RSSContent');
+        $obj->setValue($this->owner->Content);
+        return $obj->XML();         
 	}
 
 	/**
