@@ -72,12 +72,10 @@ class BlogEntryEmergencyExtension extends DataExtension{
 	}
 
 	/**
-	* Returns the Content formatted for XML
+	* Returns the Content with HTML tags stripped.
 	*/
 	function Description(){
-        $obj = new HTMLText('RSSContent');
-        $obj->setValue($this->owner->Content);
-        return $obj->XML();         
+       	return strip_tags($this->owner->Content);
 	}
 
 	/**
