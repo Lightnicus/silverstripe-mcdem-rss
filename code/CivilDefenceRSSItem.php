@@ -59,7 +59,7 @@ class CivilDefenceRSSItem extends DataObject {
 		if($this->EmergencyType == self::$EMERGENCY_TYPES['Other']){
 			return 'Other:' . $this->OtherEmergencyType;
 		}else{
-			return $this->EmergencyType;
+			return self::$EMERGENCY_TYPES[$this->EmergencyType];
 		}
 	}
 	
