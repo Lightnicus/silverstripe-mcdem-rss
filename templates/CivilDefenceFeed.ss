@@ -11,11 +11,12 @@
 				<description>$Description</description>
 				<pubDate>$PubDate</pubDate>
 				<guid>$GUIDHash</guid>
-				<% if Emergency %>
-					<nzemergency:type>$getEmergencyReal</nzemergency:type>
+				<nzemergency:type>$EmergencyTypeText</nzemergency:type>
+				<% if Link %>
+				<link>$Link</link>
 				<% end_if %>
 				<% if UpdateDate %>
-					<atom:updated>$UpdateDate</atom:updated>
+				<atom:updated>$UpdateDate</atom:updated>
 				<% end_if %>
 			</item>
 			<% end_control %>

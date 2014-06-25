@@ -28,8 +28,9 @@ class CivilDefenceRSSItem extends DataObject {
 	static $db = array(
 		'Title' => 'Varchar(80)',
 		'Description' => 'Text',
-		'Emergency' => 'Boolean',
-		'EmergencyType' => 'Text'
+		'EmergencyType' => 'Text',
+		'OtherEmergencyType' => 'Text',
+		'Link' => 'Text',
 	);
 	
 	static $has_one = array(
@@ -39,7 +40,7 @@ class CivilDefenceRSSItem extends DataObject {
 	static $summary_fields = array(
 		'Title',
 		'Description',
-		'Emergency'
+		'EmergencyType'
 	);
 
 	static $default_sort = 'Created DESC';
@@ -48,18 +49,20 @@ class CivilDefenceRSSItem extends DataObject {
 		$fields = parent::getCMSFields();
 		$fields->addFieldToTab('Root.Main', new TextField('Title'));
 		$fields->addFieldToTab('Root.Main', new TextareaField('Description'));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('Emergency', 'Is this an Emergency?'));
 		$fields->addFieldToTab('Root.Main', new DropdownField('EmergencyType', 'Emergency Type', self::$EMERGENCY_TYPES, '', '', '- please select -'));
+		$fields->addFieldToTab('Root.Main', new TextField('OtherEmergencyType', 'Emergency Type (If Other)'));
+		$fields->addFieldToTab('Root.Main', new TextField('Link', 'Link (Optional)'));
 		return $fields;
 	}
-
-	function getEmergencyReal() {
-		if($this->Emergency) {
-			$emergency = $this->EmergencyType;
-			return self::$EMERGENCY_TYPES[$emergency];
+	
+	function EmergencyTypeText(){
+		if($this->EmergencyType == self::$EMERGENCY_TYPES['Other']){
+			return 'Other:' . $this->OtherEmergencyType;
+		}else{
+			return $this->EmergencyType;
 		}
-		return;
 	}
+	
 
 	/**
 	 * PubDate function takes the Created date of the DataObject and formats it appropriately for
@@ -92,7 +95,7 @@ class CivilDefenceRSSItem extends DataObject {
 	}
 	
 	function GUIDHash(){
-		return md5($this->GUID);
+		return md5($this->GUID());
 	}
 	
 }

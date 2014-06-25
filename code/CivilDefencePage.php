@@ -15,15 +15,6 @@ class CivilDefencePage extends Page {
 	
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
-		
-		$status = array(
-			'1' => 'No current emergency',
-			'2' => 'Alert',
-			'3' => 'Activated',
-			'4' => 'Declared Emergency',
-			'5' => 'Weather warning'
-		);
-	
 		$fields->addFieldToTab('Root.Content.RSS', new TextField('RSSTitle', 'Civil Defence RSS Feed Title'));
 		$fields->addFieldToTab('Root.Content.RSS', new TextField('RSSDescription', 'Civil Defence RSS Feed Description'));
 		$rssTable = new ComplexTableField(
@@ -34,7 +25,6 @@ class CivilDefencePage extends Page {
 			'getCMSFields'
 		);
 		$fields->addFieldToTab('Root.Content.RSS', $rssTable);
-		
 		return $fields;
 	}
 	
