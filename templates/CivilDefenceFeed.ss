@@ -19,7 +19,7 @@
 				<atom:updated>$UpdateDate</atom:updated>
 				<% end_if %>
 			</item>
-			<% end_control %>
+			<% end_loop %>
 		<% end_if %>
 	</channel>
 </rss>
