@@ -5,20 +5,21 @@
 		<description>$Page.RSSDescription</description>
 		<lastBuildDate>$Date</lastBuildDate>
 		<% if RSSItems %>
-		<% loop RSSItems %>
-		<% if $getEmergencyReal %>
+			<% loop RSSItems %>
 			<item>
 				<title>$Title</title>
-				<description>$Description.XML</description>
+				<description>$Description</description>
 				<pubDate>$PubDate</pubDate>
-				<guid>$UniqueID</guid>
-				<nzemergency:type>$getEmergencyReal</nzemergency:type>
+				<guid>$GUIDHash</guid>
+				<nzemergency:type>$EmergencyTypeText</nzemergency:type>
+				<% if Link %>
+				<link>$Link</link>
+				<% end_if %>
 				<% if UpdateDate %>
 				<atom:updated>$UpdateDate</atom:updated>
 				<% end_if %>
 			</item>
-		<% end_if %>
-		<% end_loop %>
+			<% end_control %>
 		<% end_if %>
 	</channel>
 </rss>
