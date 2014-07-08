@@ -13,7 +13,8 @@
 	],
 	"require" : {
 		"silverstripe/framework" : "~3.0",
-		"silverstripe/cms" : "~3.0"
+		"silverstripe/cms" : "~3.0",
+		"silverstripe/blog": "*"	
 	},
 	"minimum-stability" : "dev"
 }

@@ -6,19 +6,19 @@
 		<lastBuildDate>$Date</lastBuildDate>
 		<% if RSSItems %>
 			<% loop RSSItems %>
-			<item>
-				<title>$Title</title>
-				<description>$Description</description>
-				<pubDate>$PubDate</pubDate>
-				<guid>$GUIDHash</guid>
-				<nzemergency:type>$EmergencyTypeText</nzemergency:type>
-				<% if Link %>
-				<link>$Link</link>
-				<% end_if %>
-				<% if UpdateDate %>
-				<atom:updated>$UpdateDate</atom:updated>
-				<% end_if %>
-			</item>
+				<item>
+					<title>$Title</title>
+					<description>$Content.XML</description>
+					<pubDate>$PubDate</pubDate>
+					<guid>$GUIDHash</guid>
+					<nzemergency:type>$EmergencyTypeText</nzemergency:type>
+					<% if EmergencyLink %>
+					<link>$EmergencyLink</link>
+					<% end_if %>
+					<% if RSSContentLastUpdatedText %>
+					<atom:updated>$RSSContentLastUpdatedText</atom:updated>
+					<% end_if %>
+				</item>
 			<% end_loop %>
 		<% end_if %>
 	</channel>
