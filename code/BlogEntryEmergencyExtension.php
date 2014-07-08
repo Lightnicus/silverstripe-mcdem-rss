@@ -50,8 +50,10 @@ class BlogEntryEmergencyExtension extends DataExtension{
 	function EmergencyTypeText(){
 		if($this->owner->EmergencyType == self::$EMERGENCY_TYPES['Other']){
 			return 'Other:' . $this->owner->OtherEmergencyType;
-		}else{
+		}else if(isset(self::$EMERGENCY_TYPES[$this->owner->EmergencyType])){
 			return self::$EMERGENCY_TYPES[$this->owner->EmergencyType];
+		}else{
+			return '';
 		}
 	}
 
@@ -96,8 +98,15 @@ class BlogEntryEmergencyExtension extends DataExtension{
 	}
 	
 	function onBeforeWrite(){
-		if($this->owner->isChanged('Content', 2) || $this->owner->isChanged('Title', 2)){ 
-			// isChanged() has to be level 2, as default returns true every time for some reason
+		// some notes:
+		// 1) has to have had something for us to consider it updated, otherwise it's just the original content
+		// 2) isChanged() has to be level 2, as default returns true every time for some reason
+		// 3) we only care about content, not title, as title starts of with a default value, so any changes to a "real" value would mean an update
+		// 4) staging-live makes this very confusing, we dont care about where it is when figuring out whether or not it's updated 
+		$changes = $this->owner->getChangedFields(true, null);
+		$contentChanged = isset($changes['Content']) && $changes['Content']['before'] != '' && $changes['Content']['before'] != $changes['Content']['after'];
+		
+		if($contentChanged){ 
 			$this->owner->RSSContentLastUpdatedText = date(self::RSS_DATE_FORMAT);
 		}
 	}
