@@ -1,0 +1,11 @@
+Blog:
+  extensions:
+    - BlogHolderEmergencyExtension
+
+BlogPost:
+  extensions:
+    - BlogEntryEmergencyExtension
+
+Blog_Controller:
+  extensions:
+    - BlogHolderControllerEmergencyExtension

@@ -4,15 +4,15 @@
 		<title>$Page.RSSTitle</title>
 		<description>$Page.RSSDescription</description>
 		<lastBuildDate>$Date</lastBuildDate>
-		<% if RSSItems %>
-		<% loop RSSItems %>
+		<% if $RSSItems %>
+		<% loop $RSSItems %>
 		<item>
 			<title>$Title</title>
 			<description>$Description</description>
 			<pubDate>$PubDate</pubDate>
 			<guid>$ID</guid>
 			<nzemergency:type>$getEmergencyReal</nzemergency:type>
-			<% if UpdateDate %>
+			<% if $UpdateDate %>
 			<atom:updated>$UpdateDate</atom:updated>
 			<% end_if %>
 		</item>

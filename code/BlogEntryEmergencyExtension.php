@@ -1,14 +1,14 @@
-<?php 
+<?php
 
 class BlogEntryEmergencyExtension extends DataExtension{
-	
+
 	static $db = array(
 		'EmergencyType' => 'Text'
 	);
-	
+
 	static $default_sort = 'Created DESC';
-	
-	function updateCMSFields(FieldList $fields) {	
+
+	function updateCMSFields(FieldList $fields) {
 		if($this->isEmergencyFeed()){
 			$types = array(
 				'Earthquakes' => 'Earthquakes',
@@ -104,7 +104,7 @@ class BlogEntryEmergencyExtension extends DataExtension{
 		if($parentID != 0){
 			$parent = SiteTree::get()->byID($parentID);
 
-			if($parent->ClassName == 'BlogHolder' && $parent->EmergencyFeed){
+			if($parent->ClassName == 'Blog' && $parent->EmergencyFeed){
 				$isEmergencyFeed = true;
 			}
 		}
