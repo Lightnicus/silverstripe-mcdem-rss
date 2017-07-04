@@ -33,8 +33,8 @@ class BlogEntryEmergencyExtension extends DataExtension{
 				'Other' => 'Other'
 			);
 
-			$fields->addFieldToTab('Root.Emergency', new DropdownField('EmergencyType', 'Emergency Type', $types, '', '', '- please select -'));
-			$fields->addFieldToTab('Root.Emergency', new TextField('Other', 'Emergency Type (if "Other")'));
+			$fields->addFieldToTab('blog-admin-sidebar', new DropdownField('EmergencyType', 'Emergency Type', $types, '', '', '- please select -'));
+			$fields->addFieldToTab('blog-admin-sidebar', new TextField('Other', 'Emergency Type (if "Other")'));
 		}
 	}
 
