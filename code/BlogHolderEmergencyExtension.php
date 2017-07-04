@@ -43,7 +43,7 @@ class BlogHolderControllerEmergencyExtension extends Extension {
 			return $this->owner->customise(array(
 				'Page' => $this->owner,
 				'Date' => date('D, d M Y H:i:s O', strtotime($this->owner->LastEdited)),
-				'RSSItems' => $this->owner->data()->getBlogPosts()
+				'RSSItems' => $this->owner->data()->getBlogPosts()->exclude('EmergencyType', '')
 			))->renderWith('CivilDefenceFeed');
 		}
 	}

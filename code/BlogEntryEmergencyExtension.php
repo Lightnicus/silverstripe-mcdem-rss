@@ -3,7 +3,8 @@
 class BlogEntryEmergencyExtension extends DataExtension{
 
 	static $db = array(
-		'EmergencyType' => 'Text'
+		'EmergencyType' => 'Text',
+		'Other' => 'Text'
 	);
 
 	static $default_sort = 'Created DESC';
@@ -33,6 +34,7 @@ class BlogEntryEmergencyExtension extends DataExtension{
 			);
 
 			$fields->addFieldToTab('Root.Emergency', new DropdownField('EmergencyType', 'Emergency Type', $types, '', '', '- please select -'));
+			$fields->addFieldToTab('Root.Emergency', new TextField('Other', 'Emergency Type (if "Other")'));
 		}
 	}
 
