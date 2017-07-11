@@ -65,6 +65,10 @@ class BlogEntryEmergencyExtension extends DataExtension{
 			'Other' => 'Other'
 		);
 
+		if ($emergency == 'Other') {
+			$types[$emergency] = $emergency . ':' . Convert::raw2xml($this->owner->Other);
+		}
+
 		return $types[$emergency];
 	}
 	/**
